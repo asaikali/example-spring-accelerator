@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: "jdbc:tc:postgresql:12:///masteryway?TC_TMPFS=/testtmpfs:rw"
+    username: masteryway
+    password: password
+    data-username: adib
+    data-password:
+    open-in-view: false

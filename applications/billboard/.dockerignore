@@ -1,0 +1,5 @@
+# ignore everything
+**
+
+# only send the files needed for building the image in the build context
+!/build/libs/*.jar

@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: "jdbc:tc:postgresql:12:///masteryway?TC_TMPFS=/testtmpfs:rw"
+
+management:
+  health:
+    probes:
+      enabled: true

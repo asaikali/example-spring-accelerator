@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.example.database.schema.DatabaseManagerConfiguration,\
+  com.example.database.test.DatabaseTestFixturesConfiguration
