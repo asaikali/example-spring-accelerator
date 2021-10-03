@@ -1,4 +1,4 @@
-rootProject.name = "boot-test-fixtures"
+rootProject.name = "example-spring-accelerator"
 
 include("platform")
 

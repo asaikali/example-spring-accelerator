@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Adib Saikali
+ * Copyright 2021 Adib Saikali
  *
  */
 
@@ -58,7 +58,8 @@ public class JsonUtils {
     } catch (IOException e) {
       throw new JsonUtilsException(
           String.format(
-              "Unable to parse json string into java object of type '%s' using jackson ObjectMapper",
+              "Unable to parse json string into java object of type '%s' "
+                  + "using jackson ObjectMapper",
               type.getName()),
           e);
     }

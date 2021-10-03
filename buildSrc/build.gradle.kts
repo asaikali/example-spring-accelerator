@@ -6,10 +6,8 @@ repositories {
     gradlePluginPortal()
 }
 
-val bootVersion = file("src/main/resources/springBootVersion.txt").readText().trim()
-
 dependencies {
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:4.5.1" )
-    implementation("gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:2.2.2")
-    implementation("org.springframework.boot:spring-boot-gradle-plugin:${bootVersion}")
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:5.16.0" )
+    implementation("com.gorylenko.gradle-git-properties:gradle-git-properties:2.3.1")
+    implementation("org.springframework.boot:spring-boot-gradle-plugin:2.5.5")
 }

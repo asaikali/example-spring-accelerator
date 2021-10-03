@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Adib Saikali
+ * Copyright 2021 Adib Saikali
  *
  */
 
@@ -28,6 +28,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 import org.springframework.transaction.support.TransactionTemplate;
 
+/**
+ * Base class with helper methods, for use when writing tests that target a SQL database using JPA.
+ */
 @Transactional
 public abstract class TransactionalTest extends ApplicationContextTest {
 

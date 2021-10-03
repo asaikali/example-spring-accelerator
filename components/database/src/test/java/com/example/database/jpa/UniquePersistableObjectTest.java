@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Adib Saikali
+ * Copyright 2021 Adib Saikali
  *
  */
 
@@ -53,7 +53,9 @@ class UniquePersistableObjectTest extends TransactionalTest {
 
     assertThat(neven)
         .hasToString(
-            "{id: \"bcf5dd8f-6bab-4a6d-8728-a2f0e26c272c\", version: 1, class: \"com.example.database.jpa.UniquePersistable\"}");
+            "{id: \"bcf5dd8f-6bab-4a6d-8728-a2f0e26c272c\", "
+                + "version: 1, "
+                + "class: \"com.example.database.jpa.UniquePersistable\"}");
 
     // Then
     assertThat(neven.getVersion()).isEqualTo(1);

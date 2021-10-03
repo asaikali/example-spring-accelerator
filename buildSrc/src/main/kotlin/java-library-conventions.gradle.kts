@@ -2,13 +2,14 @@ plugins {
     `java-library`
     jacoco
     checkstyle
-    id("com.diffplug.gradle.spotless")
+    id("com.diffplug.spotless")
     id("com.gorylenko.gradle-git-properties")
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
 }
 
 dependencies {
@@ -16,9 +17,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     api("com.google.guava:guava")
     testImplementation("nl.jqno.equalsverifier:equalsverifier")
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
-        exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
-    }
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.jar {
@@ -42,10 +41,10 @@ tasks.test {
 
 tasks.jacocoTestReport {
     reports {
-        xml.isEnabled = true
-        xml.destination = file("${buildDir}/jacoco/test.xml")
-        html.isEnabled = true
-        html.destination = file("${buildDir}/jacoco/html")
+        xml.required.set(true)
+        xml.outputLocation.set(file("${buildDir}/jacoco/test.xml"))
+        html.required.set(true)
+        html.outputLocation.set(file("${buildDir}/jacoco/html"))
     }
 }
 
@@ -60,11 +59,11 @@ tasks.jacocoTestCoverageVerification {
 }
 
 tasks.compileJava {
-    options.compilerArgs.add(element = "-parameters");
+    options.compilerArgs.add(element = "-parameters")
 }
 
 checkstyle {
-    toolVersion = "8.32"
+    toolVersion = "9.0.1"
     configDirectory.set(rootProject.file("buildSrc/src/main/resources/checkstyle"))
     isShowViolations = true
     maxErrors = 0

@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Adib Saikali
+ * Copyright 2021 Adib Saikali
  *
  */
 
@@ -10,6 +10,10 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
+/**
+ * A set of ulitity methods to use to create new transaction boundaries, very useful during testing
+ * to get the database into a specific desired state and test what happens to the database.
+ */
 public class TxUtils {
 
   public static boolean isTxActive() {

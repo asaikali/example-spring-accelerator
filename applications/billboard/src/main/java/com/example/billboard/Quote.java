@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Adib Saikali
+ * Copyright 2021 Adib Saikali
  *
  */
 
@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+/** One to 1 database table field to object mapping. */
 @Entity
 @Table(name = "quotes", schema = "billboard")
 public class Quote extends PersistableObject {

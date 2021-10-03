@@ -30,10 +30,12 @@ extracted into `buildSrc` as recommended by Gradle best practices. A gradle `jav
 is used to align dependencies across all projects in this repo. Spring Boot BOM is used to manage
 the classpath, but not the spring gradle plugin. 
 
-The Spring boot version is set by editing `buildSrc/src/main/resources/springBootVersion.txt`. This 
-is needed because the spring boot BOM and plugin are used, and it is easy to change the BOM 
-version in the platform and forget to change the plugin version which can lead to bugs. Therefore,
-the spring boot version is read from the value in `buildSrc/src/main/resources/springBootVersion.txt`.
+The Spring boot version is set by editing the `spring-boot-gradle-plugin` version in
+`buildSrc/build.gradle.kts`. The Java Platform defined by this project use the spring 
+boot version defined in the gradle plugin 
+`api(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))` 
+this approach makes sure that there is only one place to change the spring version and both
+the plugin and dependency management will use the same version. 
 
 ## Code Formatting 
 

@@ -10,22 +10,22 @@ CREATE
     );
 
 -- INSERT
- --   INTO
- --     quotes(
- --       quote,
- --       author,
- --       insert_ts,
- --       update_ts,
- --       version
- --     )
- --   VALUES(
- --     'Never, never, never give up',
- --     'Winston Churchill',
- --     now(),
- --     now(),
- --     0
- --   );
- INSERT
+--   INTO
+--     quotes(
+--       quote,
+--       author,
+--       insert_ts,
+--       update_ts,
+--       version
+--     )
+--   VALUES(
+--     'Never, never, never give up',
+--     'Winston Churchill',
+--     now(),
+--     now(),
+--     0
+--   );
+INSERT
   INTO
     quotes(
       quote,
