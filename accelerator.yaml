@@ -25,8 +25,7 @@ engine:
   merge:
     - include: [ "**/**" ]
       exclude: [ "reg.yaml" ]
-    - condition: "#javaVersion == '17'"
-      include: ["buildSrc/src/main/kotlin/java-library-conventions.gradle.kts"]
+    - include: ["buildSrc/src/main/kotlin/java-library-conventions.gradle.kts"]
       chain:
         - type: ReplaceText
           substitutions:
