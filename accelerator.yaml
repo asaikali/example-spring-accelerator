@@ -29,7 +29,7 @@ accelerator:
 engine:
   merge:
     - include: [ "**/**" ]
-      exclude: [ "reg.yaml" ]
+      exclude: [ "reg.yaml", "**/*.java" ]
     - include: [ "settings.gradle.kts" ]
       chain:
         - type: ReplaceText
