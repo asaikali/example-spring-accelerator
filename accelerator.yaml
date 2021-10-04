@@ -30,6 +30,6 @@ engine:
       chain:
         - type: ReplaceText
           substitutions:
-            - text: 'JavaLanguageVersion.of(11)'
+            - text: JavaLanguageVersion.of(11)
               with: "'JavaLanguageVersion.of(17)'"
 
