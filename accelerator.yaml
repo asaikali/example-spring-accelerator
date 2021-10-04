@@ -9,12 +9,6 @@ accelerator:
     - JPA
     - Test
   options:
-    - name: companyPkg
-      inputType: text
-      dataType: string
-      display: true
-      required: true
-      defaultValue: "com.acme"
     - name: javaVersion
       inputType: select
       dataType: string
@@ -43,12 +37,3 @@ engine:
           substitutions:
             - text: JavaLanguageVersion.of(11)
               with: "'JavaLanguageVersion.of(17)'"
-    - include: [ "**/*.java" ]
-      chain:
-        - type: OpenRewriteRecipe
-          recipe: org.openrewrite.java.ChangePackage
-          parseOrFail: true
-          options:
-            oldFullyQualifiedPackageName: "'com.example'"
-            newFullyQualifiedPackageName: "#companyPkg"
-            recursive: true
