@@ -27,7 +27,7 @@ accelerator:
       dataType: boolean
       defaultValue: false
     - name: sonar
-      label: connect to sonarqube
+      label: use sonarqube
       inputType: toggle
       display: true
       dataType: boolean
@@ -71,4 +71,16 @@ engine:
       include: [ "applications/billboard-stateless/**" ]
     - condition: "#noDB == false"
       include: [ "components/database/**", "applications/billboard/**" ]
+    - include: [ "gradle.build.kts"]
+      chain:
+        - type: ReplaceText
+          condition: "#sonar == false"
+          substitutions:
+            - text: |-
+                plugins {
+                    id("org.sonarqube") version "3.3"
+                }
+              with: |-
+                ''
+
 

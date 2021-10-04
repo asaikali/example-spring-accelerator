@@ -9,14 +9,12 @@ sonarqube {
         property("sonar.host.url", "https://sonarcloud.io")
     }
 }
-subprojects {
 
+subprojects {
     repositories {
         mavenCentral()
     }
 
-    group = "com.masteryway"
+    group = "com.example"
     version = "1.0.0"
-
-
 }
