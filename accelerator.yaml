@@ -83,11 +83,6 @@ engine:
           condition: "#sonar == false"
           substitutions:
             - text: |
-                plugins {
-                    id("org.sonarqube") version "3.3"
-                }
-              with: "''"
-            - text: |
                 sonarqube {
                     properties {
                         property("sonar.projectKey", "asaikali_example-spring-accelerator")
