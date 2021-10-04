@@ -37,9 +37,9 @@ engine:
             - text: example-spring-accelerator
               with: "#artifactId"
     - include: [ "buildSrc/src/main/kotlin/java-library-conventions.gradle.kts" ]
-      condition: "#javaVersion == '17'"
       chain:
         - type: ReplaceText
+          condition: "#javaVersion == '17'"
           substitutions:
             - text: JavaLanguageVersion.of(11)
               with: "'JavaLanguageVersion.of(17)'"
