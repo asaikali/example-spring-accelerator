@@ -47,6 +47,7 @@ engine:
       chain:
         type: OpenRewriteRecipe
         recipe: org.openrewrite.java.ChangePackage
+        parseOrFail: true
         options:
           oldFullyQualifiedPackageName: "'com.example'"
           newFullyQualifiedPackageName: "#companyPkg"
