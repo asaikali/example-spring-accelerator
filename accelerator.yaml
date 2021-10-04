@@ -43,12 +43,11 @@ engine:
           substitutions:
             - text: JavaLanguageVersion.of(11)
               with: "'JavaLanguageVersion.of(17)'"
-#    - include: [ "**/*.java" ]
-#      chain:
-#        - type: OpenRewriteRecipe
-#          recipe: org.openrewrite.java.ChangePackage
-#          parseOrFail: true
-#          options:
-#            oldFullyQualifiedPackageName: "'com.example'"
-#            newFullyQualifiedPackageName: "#companyPkg"
-#            recursive: true
+    - include: [ "**/*.java" ]
+      type: OpenRewriteRecipe
+      recipe: org.openrewrite.java.ChangePackage
+      parseOrFail: true
+      options:
+        oldFullyQualifiedPackageName: "'com.example'"
+        newFullyQualifiedPackageName: "#companyPkg"
+        recursive: true
