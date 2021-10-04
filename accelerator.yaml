@@ -81,7 +81,6 @@ engine:
                 plugins {
                     id("org.sonarqube") version "3.3"
                 }
-              with: |
-                ''
+              with: "''"
 
 
