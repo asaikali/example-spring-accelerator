@@ -56,11 +56,11 @@ engine:
           substitutions:
             - text: 11
               with: "'17'"
-#        - type: ReplaceText
-#          condition: "#sonar == false"
-#          substitutions:
-#            - text: sonarqube
-#              with: "''"
+        - type: ReplaceText
+          condition: "#sonar == false"
+          substitutions:
+            - text: sonarqube
+              with: "''"
 
     - condition: "#noDB == true"
       include: [ "applications/billboard-stateless/**" ]
