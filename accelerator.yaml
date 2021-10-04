@@ -31,5 +31,5 @@ engine:
         - type: ReplaceText
           substitutions:
             - text: JavaLanguageVersion.of(11)
-              with: 'JavaLanguageVersion.of(17)'
+              with: "'JavaLanguageVersion.of(17)'"
 
