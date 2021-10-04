@@ -1,0 +1,37 @@
+accelerator:
+  displayName: ACME Inc. Spring Web Application
+  description: An example starting template for offical spring web application at ACME Inc.
+  iconUrl:  https://raw.githubusercontent.com/sample-accelerators/icons/master/icon-cloud.png
+  tags:
+    - Java
+    - Spring
+    - Web
+    - JPA
+    - Test
+  options:
+    - name: database
+      label: Database
+      dataType: string
+      description: The type of database to use
+      inputType: radio
+      defaultValue: postgresql
+      required: true
+      choices:
+        - value: postgresql
+          text: PostgreSQL
+        - value: mysql
+          text: MySQL
+    - name: configserver
+      label: Config Server
+      dataType: boolean
+      description: Enable config server integration
+      inputType: toggle
+      defaultValue: true
+      required: true
+    - name: enableSecurity
+      label: Enable Security
+      dataType: boolean
+      description: Enable security via JWT resource server
+      inputType: toggle
+      defaultValue: true
+      required: true
