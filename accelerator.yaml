@@ -14,16 +14,17 @@ accelerator:
       dataType: string
       display: true
       required: true
-      defaultValue: "11"
+      defaultValue: 11
       choices:
         - text: 11
-          value: "11"
+          value: 11
         - text: 17
-          value: "17"
+          value: 17
 engine:
-  include: ["**/**"]
-  exclude: ["reg.yaml"]
+
   merge:
+    - include: [ "**/**" ]
+      exclude: [ "reg.yaml" ]
     - condition: "#javaVersion == '17'"
       include: ["buildSrc/src/main/kotlin/java-library-conventions.gradle.kts"]
       chain:
