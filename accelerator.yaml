@@ -36,10 +36,13 @@ engine:
           substitutions:
             - text: example-spring-accelerator
               with: "#artifactId"
-    - include: [ "buildSrc/src/main/kotlin/java-library-conventions.gradle.kts" ]
+    - condition: "#javaVersion == '17'"
+      include: [ "buildSrc/src/main/kotlin/java-library-conventions.gradle.kts" ]
       chain:
         - type: ReplaceText
-          condition: "#javaVersion == '17'"
           substitutions:
             - text: JavaLanguageVersion.of(11)
               with: "'JavaLanguageVersion.of(17)'"
+    - condition: "#noDB == true"
+      execlude: [ "components/database/**" ]
+
