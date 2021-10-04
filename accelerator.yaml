@@ -26,9 +26,10 @@ engine:
     - include: [ "**/**" ]
       exclude: [ "reg.yaml" ]
     - include: ["buildSrc/src/main/kotlin/java-library-conventions.gradle.kts"]
+      condition: "#javaVersion == '17'"
       chain:
         - type: ReplaceText
           substitutions:
-            - text: "'languageVersion.set(JavaLanguageVersion.of(11))'"
-              with: "'languageVersion.set(JavaLanguageVersion.of(17))'"
+            - text: 'JavaLanguageVersion.of(11)'
+              with: "'JavaLanguageVersion.of(17)'"
 
