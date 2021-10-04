@@ -29,7 +29,7 @@ accelerator:
 engine:
   merge:
     - include: [ "**/**" ]
-      exclude: [ "reg.yaml" ]
+      exclude: [ "reg.yaml", "components/database/**" ]
     - include: [ "settings.gradle.kts" ]
       chain:
         - type: ReplaceText
@@ -43,6 +43,6 @@ engine:
           substitutions:
             - text: JavaLanguageVersion.of(11)
               with: "'JavaLanguageVersion.of(17)'"
-    - condition: "#noDB == true"
-      exclude: [ "components/database/**" ]
+    - condition: "#noDB == false"
+      include: [ "components/database/**" ]
 
