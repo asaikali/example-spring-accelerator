@@ -11,6 +11,7 @@ accelerator:
   options:
     - name: Java Version
       inputType: radio
+      dataType: string
       display: true
       required: true
       defaultValue: 11
