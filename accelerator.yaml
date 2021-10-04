@@ -29,7 +29,7 @@ accelerator:
 engine:
   merge:
     - include: [ "**/**" ]
-      exclude: [ "reg.yaml", "components/database/**", "applications/**" ]
+      exclude: [ "reg.yaml", "components/database/**", "applications/**", "ytt/**" ]
     - include: [ "settings.gradle.kts" ]
       chain:
         - type: ReplaceText
@@ -43,6 +43,13 @@ engine:
           substitutions:
             - text: JavaLanguageVersion.of(11)
               with: "'JavaLanguageVersion.of(17)'"
+    - condition: "#javaVersion == '17'"
+        include: [ ".github/workflows/build.yml" ]
+        chain:
+          - type: ReplaceText
+            substitutions:
+              - text: 11
+                with: "'17'"
     - condition: "#noDB == true"
       include: [ "applications/billboard-stateless/**" ]
     - condition: "#noDB == false"

@@ -1,0 +1,10 @@
+#@ load("@ytt:overlay", "overlay")
+
+#@overlay/match by=overlay.subset({"jobs.steps.with":{"java-version":"11"}})
+---
+jobs:
+    steps:
+      - name: Set up JDK
+        with:
+          #@overlay/replace
+          java-version: '17'
