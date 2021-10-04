@@ -4,7 +4,7 @@ plugins {
 }
 
 springBoot {
-    mainClassName = "example.DemoApplication"
+    mainClass.set("com.example.billboard.DemoApplication")
 }
 
 dependencies {
