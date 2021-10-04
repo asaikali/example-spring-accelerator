@@ -77,11 +77,11 @@ engine:
         - type: ReplaceText
           condition: "#sonar == false"
           substitutions:
-            - text: |-
+            - text: |
                 plugins {
                     id("org.sonarqube") version "3.3"
                 }
-              with: |-
+              with: |
                 ''
 
 
