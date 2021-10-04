@@ -27,7 +27,7 @@ accelerator:
         - text: 17 (Production in Jan 2022, QA only for now)
           value: "17"
 engine:
-  merge:
+  chain:
     - include: [ "**/**" ]
       exclude: [ "reg.yaml" ]
     - include: [ "settings.gradle.kts" ]
