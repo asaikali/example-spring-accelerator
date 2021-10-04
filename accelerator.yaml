@@ -1,7 +1,7 @@
 accelerator:
   displayName: ACME Inc. Spring Web Application
   description: An example starting template for offical spring web application at ACME Inc.
-  iconUrl:  https://raw.githubusercontent.com/sample-accelerators/icons/master/icon-cloud.png
+  iconUrl: https://raw.githubusercontent.com/sample-accelerators/icons/master/icon-cloud.png
   tags:
     - Java
     - Spring
@@ -25,7 +25,13 @@ engine:
   merge:
     - include: [ "**/**" ]
       exclude: [ "reg.yaml" ]
-    - include: ["buildSrc/src/main/kotlin/java-library-conventions.gradle.kts"]
+    - include: [ "settings.gradle.kts" ]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: example-spring-accelerator
+              with: "#artifactId"
+    - include: [ "buildSrc/src/main/kotlin/java-library-conventions.gradle.kts" ]
       condition: "#javaVersion == '17'"
       chain:
         - type: ReplaceText
