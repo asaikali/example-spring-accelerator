@@ -35,6 +35,7 @@ accelerator:
     - name: projectKey
       label: Sonar project key
       dataType: string
+      defaultValue: ''
       dependsOn:
         name: sonar
 
