@@ -12,6 +12,7 @@ accelerator:
     - name: Java Version
       inputType: radio
       display: true
+      required: true
       defaultValue: 11
       choices:
         - text: 11
