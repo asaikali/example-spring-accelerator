@@ -11,9 +11,10 @@ accelerator:
   options:
     - name: Java Version
       inputType: select
+      dataType: string
       display: true
       required: true
-      defaultValue: 11
+      defaultValue: "11"
       choices:
         - text: "11"
           value: "11"
