@@ -29,6 +29,6 @@ engine:
       chain:
         - type: ReplaceText
           substitutions:
-            - text: "languageVersion.set(JavaLanguageVersion.of(11))"
-              with: "languageVersion.set(JavaLanguageVersion.of(17))"
+            - text: "'languageVersion.set(JavaLanguageVersion.of(11))'"
+              with: "'languageVersion.set(JavaLanguageVersion.of(17))'"
 
