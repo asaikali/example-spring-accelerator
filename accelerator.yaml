@@ -9,7 +9,7 @@ accelerator:
     - JPA
     - Test
   options:
-    - name: Java Version
+    - name: JavaVersion
       inputType: select
       dataType: string
       display: true
