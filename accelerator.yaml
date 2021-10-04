@@ -24,10 +24,10 @@ engine:
   include: ["**/**"]
   exclude: ["reg.yaml"]
   merge:
-      include: ["buildSrc/src/main/kotlin/java-library-conventions.gradle.kts"]
-      chain:
+      - include: ["buildSrc/src/main/kotlin/java-library-conventions.gradle.kts"]
+        chain:
         - type: ReplaceText
-         # condition: "#javaVersion == '17'"
+          condition: "#javaVersion == '17'"
           substitutions:
             - text: "'languageVersion.set(JavaLanguageVersion.of(11))'"
               with: "'languageVersion.set(JavaLanguageVersion.of(17))'"
