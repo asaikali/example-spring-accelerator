@@ -14,12 +14,12 @@ accelerator:
       dataType: string
       display: true
       required: true
-      defaultValue: 11
+      defaultValue: "11"
       choices:
-        - text: 11
-          value: 11
-        - text: 17
-          value: 17
+        - text: 11 (Supported in Production)
+          value: "11"
+        - text: 17 (Production in Jan 2022, QA only for now)
+          value: "17"
 engine:
 
   merge:
