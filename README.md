@@ -1,13 +1,6 @@
-# backend
+# Web Application Starter 
 
 Example multi module spring boot project using gradle. 
-
-# Tech Stack 
-
-* Java 11 
-* PostgreSQL 12
-* Spring Boot 2.4 and it's ecosystem
-
 
 # Conventions  
 
