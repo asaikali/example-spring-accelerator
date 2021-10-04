@@ -87,4 +87,13 @@ engine:
                     id("org.sonarqube") version "3.3"
                 }
               with: "''"
+            - text: |
+                sonarqube {
+                    properties {
+                        property("sonar.projectKey", "asaikali_example-spring-accelerator")
+                        property("sonar.organization", "asaikali")
+                        property("sonar.host.url", "https://sonarcloud.io")
+                    }
+                }
+              with: "''"
 
