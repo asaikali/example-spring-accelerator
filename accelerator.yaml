@@ -7,7 +7,7 @@ accelerator:
     - Spring
     - Web
     - JPA
-    - Test
+    - Test Patterns
   options:
     - name: noDB
       label: Stateless (Don't need a database)
