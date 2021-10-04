@@ -44,5 +44,5 @@ engine:
             - text: JavaLanguageVersion.of(11)
               with: "'JavaLanguageVersion.of(17)'"
     - condition: "#noDB == true"
-      execlude: [ "components/database/**" ]
+      exclude: [ "components/database/**" ]
 
