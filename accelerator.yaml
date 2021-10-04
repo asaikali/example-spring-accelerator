@@ -18,7 +18,7 @@ accelerator:
       choices:
         - text: 11 (Supported in Production)
           value: "11"
-        - text: 17 (Production in Jan 2022, QA only for now)
+        - text: 17 (Production in Oct 2022, QA only for now)
           value: "17"
     - name: noDB
       label: Stateless (Don't need a database)
