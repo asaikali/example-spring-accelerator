@@ -72,7 +72,7 @@ engine:
       include: [ "applications/billboard-stateless/**" ]
     - condition: "#noDB == false"
       include: [ "components/database/**", "applications/billboard/**" ]
-    - include: [ "gradle.build.kts"]
+    - include: [ "build.gradle.kts"]
       chain:
         - type: ReplaceText
           condition: "#sonar == true"
