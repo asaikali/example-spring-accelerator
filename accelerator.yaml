@@ -45,10 +45,10 @@ engine:
               with: "'JavaLanguageVersion.of(17)'"
     - include: [ "**/*.java" ]
       chain:
-        type: OpenRewriteRecipe
-        recipe: org.openrewrite.java.ChangePackage
-        parseOrFail: true
-        options:
-          oldFullyQualifiedPackageName: "'com.example'"
-          newFullyQualifiedPackageName: "#companyPkg"
-          recursive: true
+        - type: OpenRewriteRecipe
+          recipe: org.openrewrite.java.ChangePackage
+          parseOrFail: true
+          options:
+            oldFullyQualifiedPackageName: "'com.example'"
+            newFullyQualifiedPackageName: "#companyPkg"
+            recursive: true
