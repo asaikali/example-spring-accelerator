@@ -21,11 +21,11 @@ accelerator:
         - text: 17 (Production in Jan 2022, QA only for now)
           value: "17"
     - name: noDB
-        label: Stateless (Don't need a database)
-        inputType: toggle
-        display: false
-        dataType: boolean
-        defaultValue: false
+      label: Stateless (Don't need a database)
+      inputType: toggle
+      display: false
+      dataType: boolean
+      defaultValue: false
     - name: sonar
       label: connect to sonarqube
       inputType: toggle
