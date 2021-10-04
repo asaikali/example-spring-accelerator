@@ -82,3 +82,8 @@ spotless {
         dbeaver().configFile("${rootDir}/buildSrc/src/main/resources/spotless/dbeaver.properties")
     }
 }
+
+gitProperties {
+    failOnNoGitDirectory = false
+}
+
