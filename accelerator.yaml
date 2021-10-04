@@ -9,33 +9,15 @@ accelerator:
     - JPA
     - Test
   options:
-    - name: database
-      label: Database
-      dataType: string
-      description: The type of database to use
-      inputType: radio
-      defaultValue: postgresql
-      required: true
-      choices:
-        - value: postgresql
-          text: PostgreSQL
-        - value: mysql
-          text: MySQL
-    - name: configserver
-      label: Config Server
-      dataType: boolean
-      description: Enable config server integration
-      inputType: toggle
-      defaultValue: true
-      required: true
-    - name: enableSecurity
-      label: Enable Security
-      dataType: boolean
-      description: Enable security via JWT resource server
-      inputType: toggle
-      defaultValue: true
-      required: true
-
+    - name: Java Version
+        inputType: radio
+        display: true
+        defaultValue: 11
+        choices:
+          - text: 11
+            value: 11
+          - text: 17
+            value: 17
 engine:
   include: ["**/**"]
   exclude: ["reg.yaml"]
