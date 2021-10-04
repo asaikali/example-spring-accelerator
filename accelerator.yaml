@@ -15,6 +15,12 @@ accelerator:
       display: false
       dataType: boolean
       defaultValue: false
+    - name: sonar
+      label: connect to sonarqube
+      inputType: toggle
+      display: true
+      dataType: boolean
+      defaultValue: false
     - name: javaVersion
       inputType: select
       dataType: string
