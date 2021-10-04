@@ -31,6 +31,7 @@ engine:
     - include: [ "**/**" ]
       exclude: [ "reg.yaml"]
       chain:
+        - include: ["**/*.java"]
         - type: OpenRewriteRecipe
           recipe: org.openrewrite.java.ChangePackage
           options:
