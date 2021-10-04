@@ -76,7 +76,7 @@ class JsonUtilsTest {
 
     // Then
     assertThat(json).isEqualTo(input);
-    assertThat(deserialized).isEqualToComparingFieldByField(simpleTypes);
+    assertThat(deserialized).usingRecursiveComparison().isEqualTo(simpleTypes);
   }
 
   @Test
