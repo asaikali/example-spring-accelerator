@@ -10,14 +10,14 @@ accelerator:
     - Test
   options:
     - name: Java Version
-        inputType: radio
-        display: true
-        defaultValue: 11
-        choices:
-          - text: 11
-            value: 11
-          - text: 17
-            value: 17
+      inputType: radio
+      display: true
+      defaultValue: 11
+      choices:
+        - text: 11
+          value: 11
+        - text: 17
+          value: 17
 engine:
   include: ["**/**"]
   exclude: ["reg.yaml"]
