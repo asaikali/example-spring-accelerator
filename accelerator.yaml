@@ -61,7 +61,6 @@ engine:
           substitutions:
             - text: sonarqube
               with: "''"
-
     - condition: "#noDB == true"
       include: [ "applications/billboard-stateless/**" ]
     - condition: "#noDB == false"
