@@ -9,6 +9,12 @@ accelerator:
     - JPA
     - Test
   options:
+    - name: noDB
+      label: Stateless (Don't need a database)
+      inputType: toggle
+      display: false
+      dataType: boolean
+      defaultValue: false
     - name: javaVersion
       inputType: select
       dataType: string
