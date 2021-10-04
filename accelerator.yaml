@@ -32,6 +32,11 @@ accelerator:
       display: true
       dataType: boolean
       defaultValue: false
+    - name: projectKey
+      label: Sonar project key
+      dataType: string
+      dependsOn:
+        name: sonar
 
 engine:
   merge:
