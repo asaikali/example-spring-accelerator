@@ -35,3 +35,7 @@ accelerator:
       inputType: toggle
       defaultValue: true
       required: true
+
+engine:
+  include: ["**/**"]
+  exclude: ["reg.yaml"]
