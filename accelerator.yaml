@@ -10,7 +10,7 @@ accelerator:
     - Test
   options:
     - name: Java Version
-      inputType: radio
+      inputType: select
       dataType: string
       display: true
       required: true
