@@ -79,5 +79,12 @@ engine:
           substitutions:
             - text: asaikali_example-spring-accelerator
               with: "#projectKey"
-
+        - type: ReplaceText
+          condition: "#sonar == false"
+          substitutions:
+            - text: |
+                plugins {
+                    id("org.sonarqube") version "3.3"
+                }
+              with: "''"
 
