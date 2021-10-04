@@ -49,13 +49,19 @@ engine:
           substitutions:
             - text: JavaLanguageVersion.of(11)
               with: "'JavaLanguageVersion.of(17)'"
-    - condition: "#javaVersion == '17'"
-      include: [ ".github/workflows/build.yml" ]
+    - include: [ ".github/workflows/build.yml" ]
       chain:
         - type: ReplaceText
+          condition: "#javaVersion == '17'"
           substitutions:
             - text: 11
               with: "'17'"
+        - type: ReplaceText
+            condition: "#sonar == false"
+            substitutions:
+              - text: sonarqube
+                with: "''"
+
     - condition: "#noDB == true"
       include: [ "applications/billboard-stateless/**" ]
     - condition: "#noDB == false"
