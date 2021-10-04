@@ -37,7 +37,7 @@ engine:
           options:
             oldFullyQualifiedPackageName: "'com.example'"
             newFullyQualifiedPackageName: "#companyPkg"
-            recursive: true
+        #    recursive: true
     - include: [ "settings.gradle.kts" ]
       chain:
         - type: ReplaceText
