@@ -75,12 +75,9 @@ engine:
     - include: [ "gradle.build.kts"]
       chain:
         - type: ReplaceText
-          condition: "#sonar == false"
+          condition: "#sonar == true"
           substitutions:
-            - text: |
-                plugins {
-                    id("org.sonarqube") version "3.3"
-                }
-              with: "''"
+            - text: asaikali_example-spring-accelerator
+              with: "#projectKey"
 
 
