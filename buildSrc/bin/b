@@ -1,0 +1,2 @@
+# shortcut to running gradle build
+gradlew  spotlessApply build --parallel $1 $2 $3

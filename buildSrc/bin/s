@@ -1,0 +1,2 @@
+# shortcut to running spotless
+gradlew spotlessApply

@@ -1,0 +1,2 @@
+# shortcut to running gradle build
+gradlew clean build --parallel --no-build-cache $1 $2 $3
