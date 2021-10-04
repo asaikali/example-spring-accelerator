@@ -30,6 +30,13 @@ engine:
   merge:
     - include: [ "**/**" ]
       exclude: [ "reg.yaml"]
+      chain:
+        - type: OpenRewriteRecipe
+          recipe: org.openrewrite.java.ChangePackage
+          options:
+            oldFullyQualifiedPackageName: "'com.example'"
+            newFullyQualifiedPackageName: "#companyPkg"
+            recursive: true
     - include: [ "settings.gradle.kts" ]
       chain:
         - type: ReplaceText
@@ -43,11 +50,3 @@ engine:
           substitutions:
             - text: JavaLanguageVersion.of(11)
               with: "'JavaLanguageVersion.of(17)'"
-    - include: [ "**/*.java" ]
-      chain:
-        - type: OpenRewriteRecipe
-          recipe: org.openrewrite.java.ChangePackage
-          options:
-            oldFullyQualifiedPackageName: "'com.example'"
-            newFullyQualifiedPackageName: "#companyPkg"
-            recursive: true
