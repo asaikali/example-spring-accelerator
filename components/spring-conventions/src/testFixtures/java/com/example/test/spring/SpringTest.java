@@ -6,9 +6,6 @@
 package com.example.test.spring;
 
 import com.example.time.TimeMachine;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.context.ActiveProfiles;
@@ -22,17 +19,6 @@ import org.springframework.test.context.ActiveProfiles;
 public abstract class SpringTest {
 
   @Autowired protected TimeMachine timeMachine;
-
-  @BeforeEach
-  void rebuildDatabase(@Autowired DatabaseManager databaseManager) {
-    databaseManager.rebuildSchemasAndLoadTestData();
-  }
-
-  @BeforeAll
-  @AfterAll
-  static void cleanDatabase(@Autowired DatabaseManager databaseManager) {
-    databaseManager.dropSchemas();
-  }
 
   /**
    * Creates a classpath resource that points to a file on the classpath that is located in a

@@ -31,7 +31,7 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation;
 @SpringBootTest(
     webEnvironment = WebEnvironment.RANDOM_PORT,
     properties = "spring.main.banner-mode=log")
-public abstract class ApplicationServerTest extends SpringTest {
+public abstract class ApplicationServerTest extends DatabaseTest {
 
   @LocalServerPort protected int localServerPort;
 

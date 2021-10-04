@@ -17,6 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
  */
 @AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = WebEnvironment.MOCK, properties = "spring.main.banner-mode=log")
-public abstract class ApplicationContextTest extends SpringTest {
+public abstract class ApplicationContextTest extends DatabaseTest {
   @Autowired protected MockMvc mockMvc;
 }
