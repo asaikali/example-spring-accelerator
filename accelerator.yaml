@@ -15,10 +15,10 @@ accelerator:
       required: true
       defaultValue: 11
       choices:
-        - text: 11
-          value: 11
-        - text: 17
-          value: 17
+        - text: "11"
+          value: "11"
+        - text: "17"
+          value: "17"
 engine:
   include: ["**/**"]
   exclude: ["reg.yaml"]
