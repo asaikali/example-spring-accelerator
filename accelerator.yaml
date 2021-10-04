@@ -23,3 +23,12 @@ accelerator:
 engine:
   include: ["**/**"]
   exclude: ["reg.yaml"]
+  merge:
+    - condition: "#javaVersion == '17'"
+      include: ["buildSrc/src/main/kotlin/java-library-conventions.gradle.kts"]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: "languageVersion.set(JavaLanguageVersion.of(11))"
+              with: "languageVersion.set(JavaLanguageVersion.of(17))"
+
