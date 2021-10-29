@@ -1,0 +1,150 @@
+accelerator:
+  displayName: ACME Inc. Spring Web Application
+  description: An example starting template for offical spring web application at ACME Inc.
+  iconUrl: https://raw.githubusercontent.com/sample-accelerators/icons/master/icon-cloud.png
+  tags:
+    - Java
+    - Spring
+    - Web
+    - JPA
+    - Test Patterns
+  #
+  # Pulling variables into its top level has the following benefits:
+  #
+  #  1. Enable customers to use curl or a direct HTTP call to invoke the
+  #    accelerator while being able to validate the input. defines a schema for
+  #    the accelerator enabling the generation of a project using a REST HTTP call with
+  #    validation. for example curl example.com/accelerator/?javaVersion=17,noDb=true
+  #    any query params must be validated against the variables defined in the variables.
+  #
+  #  2. Enable accelerator transform composition: variables with types and default values
+  #     enable the definition of pure functions for defining tarnsform.
+  #
+  #  3. Enable definition of file sets: It is really hard to reason about how the transform
+  #    current chain and which files they need to apply to. Adding a fileSet dataType allows
+  #    for naming a set of files that match a pattern that is specified, this symbolic
+  #    naming makes the transformation specs much easier to understand it also enables
+  #    simpler composition when defining pure functions.
+  #
+  #  4. Cleaner way to define UI control bindings: Developers are familiar with the concept
+  #     of binding a variable to a UI control. By separating the UI controls definitions
+  #     from the dataTypes it is much easier to understand how the accelerator works. Also
+  #     it allows the accelerator developer to try out different ui controls for the same option
+  #     for example edit box vs. drop down list.
+  #
+  #  5. Better error messages: In the current scheme variable names must follow javaBean naming
+  #     conventions when writing my first accelerator I got confused as why I was getting error
+  #     message saying that the variable name was illegal when I was defining a UI option. It
+  #     was not until I understood name of the UI option becomes a field that must be accessible
+  #     from a SPEL expression that I understood why it had to work this way. Without a background
+  #     in server side template templates such as the legacy JSP pages and Spring I doubt I would
+  #     have been able to troubleshoot the issues in 15 minutes. If the accelerator author does
+  #     not know SPEL and Spring he/she will receive the rules as being strange and arbitrary and
+  #     will conclude that accelerators are hard to write. Also because var definitions can
+  #     set legal values it is possible to validate them.
+  #
+  #  6. Enable multiple languages for defining transforms: having clear var definitions makes it
+  #     possible to write a transform in a real programming language. For example, I can write
+  #     a javaScript function to process the files in the git repo, and it will be possible for the
+  #     engine to make a call to the JavaScript function because it will know how to pass input
+  #     vars into the function and it will know that the output is a set of files that will be
+  #     unioned with the files set from other transforms per the rules of how the output of
+  #     multiple transforms are composed together.
+  #
+  variables:
+    - name: javaVersion
+      dataType: string
+      legalValues: ["11","17"] # can be array or values or a RegEX if the value is a string
+      value: "11"
+    - name: noDB
+      dataType: boolean
+      value: false
+    - name: sonar
+      type: boolean
+      defaultValue: false
+    - name: projectKey
+      dataType: string
+      value: ""
+    - name: databaseSpecificFiles
+      dataType: fileSet
+      value: [ "components/database/**", "applications/billboard"]
+  options:
+    - bind-to: javaVersion
+      label: Java Version
+      inputType: select
+      display: true
+      required: true
+      choices:
+        - text: 11 (Supported in Production)
+          value: "11"
+          default: true
+        - text: 17 (Production in Oct 2022, QA only for now)
+          value: "17"
+    - bind-to: noDB
+      label: Stateless (Don't need a database)
+      inputType: toggle
+      display: false
+    - bind-to: sonar
+      label: use sonarqube
+      inputType: toggle
+      display: true
+    - bind-to: projectKey
+      label: Sonar project key
+      dataType: string
+      defaultValue: ''
+      dependsOn:
+        name: sonar
+
+engine:
+  merge:
+    - include: [ "**/**" ]
+      exclude: [ "reg.yaml", "components/database/**", "applications/**", "ytt/**" ]
+    - include: [ "settings.gradle.kts" ]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: example-spring-accelerator
+              with: "#artifactId"
+    - condition: "#javaVersion == '17'"
+      include: [ "buildSrc/src/main/kotlin/java-library-conventions.gradle.kts" ]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: JavaLanguageVersion.of(11)
+              with: "'JavaLanguageVersion.of(17)'"
+    - include: [ ".github/workflows/build.yml" ]
+      chain:
+        - type: ReplaceText
+          condition: "#javaVersion == '17'"
+          substitutions:
+            - text: 11
+              with: "'17'"
+        - type: ReplaceText
+          condition: "#sonar == false"
+          substitutions:
+            - text: sonarqube
+              with: "''"
+    - condition: "#noDB == true"
+      include: [ "applications/billboard-stateless/**" ]
+    - condition: "#noDB == false"
+      include: [ "components/database/**", "applications/billboard/**" ]
+    - include: [ "build.gradle.kts"]
+      chain:
+        - type: ReplaceText
+          condition: "#sonar == true"
+          substitutions:
+            - text: asaikali_example-spring-accelerator
+              with: "#projectKey"
+        - type: ReplaceText
+          condition: "#sonar == false"
+          substitutions:
+            - text: |
+                sonarqube {
+                    properties {
+                        property("sonar.projectKey", "asaikali_example-spring-accelerator")
+                        property("sonar.organization", "asaikali")
+                        property("sonar.host.url", "https://sonarcloud.io")
+                    }
+                }
+              with: "''"
+
