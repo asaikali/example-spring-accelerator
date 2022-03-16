@@ -7,7 +7,6 @@ accelerator:
     - Spring
     - Web
     - JPA
-    - Test Patterns
   options:
     - name: javaVersion
       inputType: select
